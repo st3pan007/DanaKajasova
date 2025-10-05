@@ -33,9 +33,16 @@
     box-sizing: border-box;
 }
 
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 html {
     scroll-behavior: smooth;
     font-size: 16px;
+    overflow-x: hidden;
+    max-width: 100%;
 }
 
 body {
@@ -43,6 +50,7 @@ body {
     color: var(--navy);
     line-height: 1.8;
     overflow-x: hidden;
+    max-width: 100vw;
 }
 
 img {
@@ -249,11 +257,13 @@ p {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
+    width: 100%;
 }
 
 section {
     padding: var(--spacing-xl) 0;
     position: relative;
+    overflow-x: hidden;
 }
 
 .watermark {
@@ -261,6 +271,7 @@ section {
     opacity: 0.08;
     pointer-events: none;
     z-index: 0;
+    max-width: 90vw;
 }
 
 .watermark-hero {
@@ -382,6 +393,7 @@ section {
     gap: var(--spacing-lg);
     align-items: center;
     margin-bottom: var(--spacing-lg);
+    max-width: 100%;
 }
 
 .hero-text p {
@@ -437,8 +449,8 @@ section {
     position: relative;
     z-index: 1;
     float: left;
-    margin: 0 2.5rem 1.5rem 0;
-    max-width: 380px;
+    margin: 0 2rem 1.5rem 0;
+    max-width: min(380px, 100%);
     width: 100%;
 }
 
@@ -683,6 +695,7 @@ section {
     gap: var(--spacing-md);
     margin-bottom: var(--spacing-md);
     align-items: stretch;
+    max-width: 100%;
 }
 
 .pricing-card {
@@ -1219,6 +1232,7 @@ section {
     display: flex;
     align-items: flex-start;
     gap: var(--spacing-md);
+    flex-wrap: wrap;
 }
 
 .newsletter-bonus i {
@@ -1437,6 +1451,10 @@ section {
         max-width: 400px;
     }
     
+    .about-content {
+        overflow-x: hidden;
+    }
+    
     .pillars {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1447,6 +1465,7 @@ section {
     
     .pricing-cards {
         grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
     }
     
     .pricing-card.featured {
@@ -1458,6 +1477,16 @@ section {
     :root {
         --spacing-lg: 3rem;
         --spacing-xl: 3rem;
+    }
+    
+    html, body {
+        overflow-x: hidden;
+        max-width: 100%;
+    }
+    
+    img {
+        max-width: 100%;
+        height: auto;
     }
     
     .nav-menu {
@@ -1482,23 +1511,23 @@ section {
     
     .comparison-grid {
         grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
     }
     
     .pillars {
         grid-template-columns: 1fr;
-    }
-    
-    .pricing-cards {
-        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
     }
     
     .testimonials-grid {
         grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
     }
     
     .corporate-benefits,
     .corporate-process {
         grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
     }
     
     .footer-content {
@@ -1527,6 +1556,10 @@ section {
     .btn-primary-inverse {
         padding: 0.875rem 1.5rem;
         width: 100%;
+    }
+    
+    .watermark {
+        display: none;
     }
 }
 
